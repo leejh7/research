@@ -11,7 +11,7 @@ void makeGraph()
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("/Volumes/Programming/resarch/input.txt", "r", stdin);
+    freopen("/Volumes/Programming/study_linux/unique0.edges", "r", stdin);
 
     // p 만들기 위한 초기 작업
     default_random_engine generator;
@@ -25,7 +25,6 @@ void makeGraph()
     incoming_graph.resize(n + 1);
     outgoing_graph.resize(n + 1);
     diff_degree.resize(n+1);
-    // rank.resize(n);
 
     for (int i = 0; i < m; i++)
     {

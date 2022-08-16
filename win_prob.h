@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 class WinProb
 {
 public:
@@ -16,4 +18,4 @@ public:
   }
 };
 
-void winProb();
+std::vector<int> winProb();

@@ -1,4 +1,5 @@
 #include "greedy_order.h"
+#include "count_violations.h"
 #include <iostream>
 #include <vector>
 #include <stack>
@@ -7,6 +8,7 @@ using namespace std;
 
 extern vector<vector<int> > incoming_graph, outgoing_graph;
 extern vector<int> diff_degree;
+// extern int count_violations(vector<int> &result);
 
 void removeEdge(int v, vector<vector<int> > graph, bool isIncome)
 {
@@ -33,25 +35,7 @@ void createResult(stack<int> &res_stack, vector<int> &result)
     }
 }
 
-int count_violations(vector<int> &result)
-{
-    int cnt = 0;
-    for (int i = 0; i < result.size(); i++)
-    {
-        int node = result[i];
-        for (int j = i + 1; j < result.size(); j++)
-        {
-            for (int k = 0; k < incoming_graph[node].size(); k++)
-            {
-                if (result[j] == incoming_graph[node][k])
-                    cnt++;
-            }
-        }
-    }
-    return cnt;
-}
-
-void greedyOrder()
+vector<int> greedyOrder()
 {
     queue<int> q;
     stack<int> res_stack;
@@ -87,9 +71,10 @@ void greedyOrder()
 
     createResult(res_stack, result);
 
-    int prev_cnt = count_violations(result);
+    int cnt = count_violations(result);
 
-    freopen("/Volumes/Programming/test/GO/alpha1.dat", "w", stdout);
-    cout << prev_cnt << '\n';
-    fclose(stdout);
+    FILE* fp = freopen("/Volumes/Programming/PositionMove/DATA/orialpha1.dat", "w", stdout);
+    cout << "GO " << cnt << '\n';
+
+    return result;
 }

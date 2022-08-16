@@ -1,3 +1,5 @@
 #pragma once
 
-void greedyOrder();
+#include <vector>
+
+std::vector<int> greedyOrder();
