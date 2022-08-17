@@ -5,16 +5,13 @@
 using namespace std;
 
 extern vector<vector<int> > incoming_graph, outgoing_graph;
-
-// extern int count_violations(vector<int> &result);
+extern int n;
 
 vector<int> winProb() {
     vector<WinProb> result;
     vector<int> vResult;
 
-    int n = incoming_graph.size() - 1;
-
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
         int a = incoming_graph[i].size();
         int b = outgoing_graph[i].size();
@@ -30,6 +27,5 @@ vector<int> winProb() {
     int cnt = count_violations(vResult);
     
     cout << "WP " << cnt << '\n';
-    
     return vResult;
 }

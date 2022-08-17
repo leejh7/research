@@ -6,21 +6,26 @@ using namespace std;
 
 vector<vector<int> > incoming_graph, outgoing_graph;
 vector<int> diff_degree;
+int n;
 
-void makeGraph()
+void makeGraph(const char* inputFile, const char* outputFile)
 {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    freopen("/Volumes/Programming/study_linux/unique0.edges", "r", stdin);
+    freopen(inputFile, "r", stdin);
 
     // p 만들기 위한 초기 작업
     default_random_engine generator;
     uniform_real_distribution<double> dist(0.0, 1.0);
 
-    int n, m;
+    int m;
     int u, v;
     double p, alpha = 1.0;
     cin >> n >> m;
+
+    incoming_graph.clear();
+    outgoing_graph.clear();
+    diff_degree.clear();
 
     incoming_graph.resize(n + 1);
     outgoing_graph.resize(n + 1);
@@ -46,5 +51,5 @@ void makeGraph()
         }
     }
 
-    cout << "완료!!!" << '\n';
+    FILE* fp = freopen(outputFile, "w", stdout);
 }

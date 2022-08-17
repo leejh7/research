@@ -8,7 +8,7 @@ using namespace std;
 
 extern vector<vector<int> > incoming_graph, outgoing_graph;
 extern vector<int> diff_degree;
-// extern int count_violations(vector<int> &result);
+extern int n;
 
 void removeEdge(int v, vector<vector<int> > graph, bool isIncome)
 {
@@ -41,7 +41,6 @@ vector<int> greedyOrder()
     stack<int> res_stack;
     vector<int> result;
 
-    int n = diff_degree.size() - 1;
     result.resize(n);
 
     while (res_stack.size() < n)
@@ -73,7 +72,6 @@ vector<int> greedyOrder()
 
     int cnt = count_violations(result);
 
-    FILE* fp = freopen("/Volumes/Programming/PositionMove/DATA/orialpha1.dat", "w", stdout);
     cout << "GO " << cnt << '\n';
 
     return result;

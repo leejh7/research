@@ -3,8 +3,6 @@
 #include <iostream>
 using namespace std;
 
-extern vector<vector<int> > incoming_graph, outgoing_graph;
-
 void rotate(vector<int> &arr, int start, int end)
 {
     int temp = arr[end], p;
@@ -57,6 +55,8 @@ void positionMove(vector<int> result, const string description) {
         cout << "GO-PM ";
     } else if (description == "WP") {
         cout << "WP-PM ";
+    } else if (description == "RANDOM") {
+        cout << "RANDOM-PM ";
     }
     
     cout << count_violations(result) << '\n';
